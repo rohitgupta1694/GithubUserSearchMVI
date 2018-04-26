@@ -1,14 +1,63 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.30'
+
+    ext.versions = [support_lib              : "26.1.0",
+                    retrofit                 : "2.4.0",
+                    rxjava                   : "2.1.12",
+                    rxbinding                : "2.1.1",
+                    kotlin_version           : "1.2.30",
+                    constraint_layout_version: "1.0.2",
+                    butterknife_version      : "8.8.1",
+                    dagger_version           : "2.11"
+    ]
+
+    ext.SupportLib = [
+            support_appcompat_v7     : "com.android.support:appcompat-v7:${versions.support_lib}",
+            support_constraint_layout: "com.android.support.constraint:constraint-layout:${versions.constraint_layout_version}",
+    ]
+
+    ext.RxJava2Lib = [
+            rxjava: "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
+    ]
+
+    ext.Retrofit2Lib = [
+            retrofit               : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            retrofit_gson_converter: "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+    ]
+
+    ext.RxBinding2Lib = [
+            rxbinding                : "com.jakewharton.rxbinding2:rxbinding:${versions.rxbinding}",
+            rxbinding_recyclerview_v7: "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:${versions.rxbinding}",
+            rxbinding_design         : "com.jakewharton.rxbinding2:rxbinding-design:${versions.rxbinding}",
+            rxbinding_appcompat_v7   : "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:${versions.rxbinding}",
+            rxbinding_support_v4     : "com.jakewharton.rxbinding2:rxbinding-support-v4:${versions.rxbinding}"
+    ]
+
+    ext.ButterKnifeLib = [
+            butterknife         : "com.jakewharton:butterknife:${versions.butterknife_version}",
+            butterknife_compiler: "com.jakewharton:butterknife-compiler:${versions.butterknife_version}"
+    ]
+
+    ext.Dagger2Lib = [
+            dagger2          : "com.google.dagger:dagger-android:${versions.dagger_version}",
+            dagger2_support  : "com.google.dagger:dagger-android-support:${versions.dagger_version}",
+            dagger2_processor: "com.google.dagger:dagger-android-processor:${versions.dagger_version}",
+            dagger2_compiler : "com.google.dagger:dagger-compiler:${versions.dagger_version}"
+    ]
+
+    ext.KotlinLib = [
+            kotlin_stdlib_JDK7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin_version",
+            kotlin_stdlib_JDK8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_version"
+    ]
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
