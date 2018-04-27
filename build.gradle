@@ -9,7 +9,8 @@ buildscript {
                     kotlin_version           : "1.2.30",
                     constraint_layout_version: "1.0.2",
                     butterknife_version      : "8.8.1",
-                    dagger_version           : "2.14.1"
+                    dagger_version           : "2.14.1",
+                    glide_version            : "4.7.1"
     ]
 
     ext.SupportLib = [
@@ -47,6 +48,11 @@ buildscript {
     ext.KotlinLib = [
             kotlin_stdlib_JDK7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin_version",
             kotlin_stdlib_JDK8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_version"
+    ]
+
+    ext.GlideLib = [
+            glide: "com.github.bumptech.glide:glide:$versions.glide_version",
+            glide_compiler: "com.github.bumptech.glide:compiler:$versions.glide_version"
     ]
 
     repositories {

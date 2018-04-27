@@ -1,7 +1,8 @@
-package com.rohit.githubusersearchmvi
+package com.rohit.githubusersearchmvi.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import com.rohit.githubusersearchmvi.R
 
 class MainActivity : AppCompatActivity() {
 
