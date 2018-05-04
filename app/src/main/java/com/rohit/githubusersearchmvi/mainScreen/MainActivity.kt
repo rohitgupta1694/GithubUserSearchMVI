@@ -1,4 +1,4 @@
-package com.rohit.githubusersearchmvi.activities
+package com.rohit.githubusersearchmvi.mainScreen
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
