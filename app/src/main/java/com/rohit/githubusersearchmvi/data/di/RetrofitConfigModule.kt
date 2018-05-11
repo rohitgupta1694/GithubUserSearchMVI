@@ -13,7 +13,8 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class CommonNetworkModule {
+class RetrofitConfigModule {
+
     @Provides
     @Singleton
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
