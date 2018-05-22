@@ -10,12 +10,18 @@ buildscript {
                     constraint_layout_version: "1.0.2",
                     butterknife_version      : "8.8.1",
                     dagger_version           : "2.15",
-                    glide_version            : "4.7.1"
+                    glide_version            : "4.7.1",
+                    arch_navigation_version  : "1.0.0-alpha01"
     ]
 
     ext.SupportLib = [
             support_appcompat_v7     : "com.android.support:appcompat-v7:${versions.support_lib}",
             support_constraint_layout: "com.android.support.constraint:constraint-layout:${versions.constraint_layout_version}",
+    ]
+
+    ext.ArchNavigation = [
+            navigation_fragment: "android.arch.navigation:navigation-fragment:${versions.arch_navigation_version}",
+            navigation_ui      : "android.arch.navigation:navigation-ui:${versions.arch_navigation_version}"
     ]
 
     ext.RxJava2Lib = [

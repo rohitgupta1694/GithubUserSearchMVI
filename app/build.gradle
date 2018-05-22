@@ -48,6 +48,13 @@ dependencies {
 
     //endregion
 
+    //region Architecture Component - Navigation
+
+    implementation ArchNavigation.navigation_fragment
+    implementation ArchNavigation.navigation_ui
+
+    //endregion
+
     //region Kotlin Support Dependencies
 
     implementation KotlinLib.kotlin_stdlib_JDK7
