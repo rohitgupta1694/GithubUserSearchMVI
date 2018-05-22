@@ -65,6 +65,7 @@ dependencies {
     //region Dagger 2 Dependencies
 
     implementation Dagger2Lib.dagger2
+    implementation Dagger2Lib.dagger2_android
     implementation Dagger2Lib.dagger2_support
 
     // if you use the support libraries
