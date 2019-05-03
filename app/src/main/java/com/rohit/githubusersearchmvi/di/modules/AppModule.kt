@@ -2,11 +2,11 @@ package com.rohit.githubusersearchmvi.di.modules
 
 import android.content.Context
 import com.rohit.githubusersearchmvi.GithubUserSearchApplication
-import com.rohit.githubusersearchmvi.mainScreen.di.component.MainActivityComponent
+import com.rohit.githubusersearchmvi.data.di.RetrofitConfigModule
 import dagger.Module
 import dagger.Provides
 
-@Module(subcomponents = [MainActivityComponent::class])
+@Module(includes = [RetrofitConfigModule::class])
 class AppModule {
 
     @Provides

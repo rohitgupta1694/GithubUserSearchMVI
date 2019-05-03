@@ -5,6 +5,8 @@ import com.rohit.githubusersearchmvi.data.di.UserSearchAPIModule
 import com.rohit.githubusersearchmvi.mainScreen.viewModel.MainActivityViewModel
 import dagger.Module
 import dagger.Provides
+import retrofit2.Retrofit
+import javax.inject.Named
 
 @Module(includes = [UserSearchAPIModule::class])
 class MainActivityModule {

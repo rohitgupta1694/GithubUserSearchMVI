@@ -1,12 +1,13 @@
 package com.rohit.githubusersearchmvi.mainScreen
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.rohit.githubusersearchmvi.R
 import com.rohit.githubusersearchmvi.mainScreen.viewModel.MainActivityViewModel
+import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var mainActivityViewModel: MainActivityViewModel

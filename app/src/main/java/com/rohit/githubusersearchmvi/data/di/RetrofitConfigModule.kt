@@ -1,5 +1,8 @@
 package com.rohit.githubusersearchmvi.data.di
 
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.rohit.githubusersearchmvi.utils.showDebugLog
 import dagger.Module
@@ -17,6 +20,14 @@ class RetrofitConfigModule {
 
     @Provides
     @Singleton
+    internal fun provideGson(): Gson {
+        val gsonBuilder = GsonBuilder()
+        gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+        return gsonBuilder.create()
+    }
+
+    @Provides
+    @Singleton
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val loggingInterceptor = HttpLoggingInterceptor { message -> showDebugLog("OKHTTP", message) }
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -24,8 +35,8 @@ class RetrofitConfigModule {
     }
 
     @Provides
-    @Named("okHttpClient")
     @Singleton
+    @Named("okHttpClient")
     fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         val httpClientBuilder = OkHttpClient.Builder()
         httpClientBuilder.addInterceptor(httpLoggingInterceptor)
@@ -36,13 +47,15 @@ class RetrofitConfigModule {
     }
 
     @Provides
-    @Named("retrofit")
     @Singleton
-    fun provideRetrofit(@Named("baseUrl") baseUrl: String, @Named("okHttpClient") okHttpClient: OkHttpClient): Retrofit {
+    @Named("retrofit")
+    fun provideRetrofit(@Named("baseUrl1") baseUrl: String,
+                        @Named("okHttpClient") okHttpClient: OkHttpClient,
+                        gson: Gson): Retrofit {
         return Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
     }

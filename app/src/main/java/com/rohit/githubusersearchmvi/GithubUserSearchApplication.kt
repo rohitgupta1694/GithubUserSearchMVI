@@ -7,7 +7,9 @@ import dagger.android.DaggerApplication
 class GithubUserSearchApplication : DaggerApplication() {
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder().create(this)
+        return DaggerAppComponent.builder()
+                .baseUrl("https://google.com/")
+                .create(this)
     }
 
 }
